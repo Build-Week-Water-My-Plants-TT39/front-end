@@ -19,6 +19,7 @@ export default function LoginForm(){
                 type="text"
                 {/* value={}
                 onChange={} */}
+                placeholder='Username'
                 </input>
             </label>
             <label>
@@ -27,6 +28,7 @@ export default function LoginForm(){
                 type="password"
                 {/* value={}
                 onChange={} */}
+                placeholder="Password"
                 </input>
             </label>
                 <button>Login</button>   
