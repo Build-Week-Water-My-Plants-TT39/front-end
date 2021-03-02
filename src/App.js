@@ -1,15 +1,18 @@
-import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
-import styled from 'styled-components' 
+import React from 'react';
+import { connect } from 'react-redux';
 
-
-
-function App() {
+const App = () => {
   return (
     <div className="App">
       <h1>Water our plant app!</h1>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
