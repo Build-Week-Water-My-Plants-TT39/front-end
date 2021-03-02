@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
+import {Route,Link,Switch} from 'react-router-dom'
 import styled from 'styled-components' 
 
 
@@ -11,28 +11,40 @@ export default function PlantForm(){
    <div>
     <form> 
        <div>
-           <input>
+           <label> 
+               Nickname
+           <input
             name="nickname"
             type="text"
-            {/* value={}
-            onChange={} */}
-           </input>
+            // {/* value={}
+        // onChange={} */}
+           placeholder="Nickname"
+        />
+        </label>
         </div>
         <div>
-            <input>
+            <label>
+                Species
+            <input
             name="species"
             type="text"
-            {/* value={}
-            onChange={} */}
-            </input>
+            // {/* value={}
+        // onChange={} */}
+            placeholder="Species"
+        />
+        </label>
         </div>
         <div>
-            <input>
-            name="h20_frequency"
-            type="number"
-            {/* value={}
-            onChange={} */}
-            </input>
+            <label>
+                H2o Frequency
+            <input
+            name="h20Frequency"
+            type="string"
+            // {/* value={}
+        // onChange={} */}
+            placeholder="H2o Frequency"
+        />
+        </label>
         </div>
     </form>
    </div>

@@ -8,22 +8,22 @@ const LoginForm = () => {
         <h2></h2>
         <div>
             <label>
-                <input>
+                <input
                 name="username" 
                 type="text"
-                {/* value={}
-                onChange={} */}
+                // {/* value={}
+                // onChange={} */}
                 placeholder='Username'
-                </input>
+                />
             </label>
             <label>
-                <input>
+                <input
                 name="password" 
                 type="password"
-                {/* value={}
-                onChange={} */}
+                // {/* value={}
+                // onChange={} */}
                 placeholder="Password"
-                </input>
+                />
             </label>
                 <button>Login</button>   
         </div>
