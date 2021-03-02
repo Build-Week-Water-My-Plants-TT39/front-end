@@ -28,7 +28,7 @@ export default function PlantForm(){
             <input
             name="species"
             type="text"
-            // {/* value={}
+            // {/* value={}nb 
         // onChange={} */}
             placeholder="Species"
         />
