@@ -1,23 +1,13 @@
-import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
-import styled from 'styled-components' 
+import React from 'react';
 
-
-
-export default function Header(){
-
-
-
-return(
-
+const Header = () => {
+  return (
     <div>
-        <header>
-            <h1>
-            {/* //!  Title Ipsum*/}
-            </h1>
-        </header>
+      <header>
+        <h1>TITLE</h1>
+      </header>
     </div>
-)
+  );
+};
 
-
-}
+export default Header;
