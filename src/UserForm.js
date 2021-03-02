@@ -1,48 +1,34 @@
-import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
-import styled from 'styled-components' 
+import React from 'react';
 
-
-
-export default function UserForm(){
-
-
- return(
-   <div>
-    <form> 
-    <label>
-      <input>
-         name="username" 
-         type="text"
-         {/* value={}
+export default function UserForm() {
+  return (
+    <div>
+      <form>
+        <label>
+          <input>
+            name="username" type="text"
+            {/* value={}
          onChange={} */}
-         placeholder="Username"
-      </input>
-    </label>
-    <label>
-      <input>
-         name="password" 
-         type="password"
-         value={}
-         onChange={}
-         placeholder="Password"
-      </input>
-    </label>
-    <label>
-      <input>
-          name="phone_number"
-          type="text"
-          {/* value={}
+            placeholder="Username"
+          </input>
+        </label>
+        <label>
+          <input>
+            name="password" type="password" value={}
+            onChange={}
+            placeholder="Password"
+          </input>
+        </label>
+        <label>
+          <input>
+            name="phone_number" type="text"
+            {/* value={}
           onChange={} */}
-          placeholder="Phone Number"
-      </input>
-    </label>
-    <button>Submit</button>
-    </form>
-   </div>
- )
-
-
-
-
+            placeholder="Phone Number"
+          </input>
+        </label>
+        <button>Submit</button>
+      </form>
+    </div>
+  );
 }
