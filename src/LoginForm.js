@@ -1,44 +1,26 @@
-import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
-import styled from 'styled-components' 
+import React from 'react';
 
-
-
-export default function LoginForm(){
-
-
- return(
-   <div>
-    <form> 
+const LoginForm = () => {
+  return (
+    <div>
+      <form>
         <title> </title>
         <h2></h2>
         <div>
-            <label>
-                <input>
-                name="username" 
-                type="text"
-                {/* value={}
-                onChange={} */}
-                </input>
-            </label>
-            <label>
-                <input>
-                name="password" 
-                type="password"
-                {/* value={}
-                onChange={} */}
-                </input>
-            </label>
-                <button>Login</button>   
+          <label>
+            <input name="username" type="text"></input>
+          </label>
+          <label>
+            <input name="password" type="password"></input>
+          </label>
+          <button>Login</button>
         </div>
         <div>
-      <button>Sign up!</button>
+          <button>Sign up!</button>
         </div>
-    </form>
-   </div>
- )
+      </form>
+    </div>
+  );
+};
 
-
-
-
-}
+export default LoginForm;
