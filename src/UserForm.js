@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Route,Link,Switch} from 'react-dom-dom'
+import {Route,Link,Switch} from 'react-router-dom'
 import styled from 'styled-components' 
 
 
@@ -11,31 +11,31 @@ export default function UserForm(){
    <div>
     <form> 
     <label>
-      <input>
+      <input
          name="username" 
          type="text"
-         {/* value={}
-         onChange={} */}
+        //  {/* value={}
+        //  onChange={} */}
          placeholder="Username"
-      </input>
+      />
     </label>
     <label>
-      <input>
+      <input
          name="password" 
          type="password"
-         value={}
-         onChange={}
+        //  value={}
+        //  onChange={}
          placeholder="Password"
-      </input>
+      />
     </label>
     <label>
-      <input>
+      <input
           name="phone_number"
           type="text"
-          {/* value={}
-          onChange={} */}
+        //   {/* value={}
+        //   onChange={} */}
           placeholder="Phone Number"
-      </input>
+      />
     </label>
     <button>Submit</button>
     </form>
