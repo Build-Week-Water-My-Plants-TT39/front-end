@@ -16,6 +16,7 @@ const initialState = {
   isLoading: false,
   errors: '',
   isLoggedIn: window.localStorage.getItem('token'),
+  isSignedUp: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -25,6 +26,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
         error: '',
+        isSignedUp: false,
         isLoggedIn: false,
       };
 
@@ -33,14 +35,14 @@ const userReducer = (state = initialState, action) => {
         ...state,
         user: action.payload,
         isLoading: false,
-        isLoggedIn: true,
+        isSignedUp: true,
       };
     case SIGN_UP_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.payload,
-        isLoggedIn: false,
+        isSignedUp: false,
       };
     case LOGIN_LOADING:
       return {
