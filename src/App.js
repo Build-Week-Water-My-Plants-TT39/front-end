@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserForm from './components/UserForm'
-import LoginForm from './components/LoginForm'
-import PlantForm from './components/PlantForm'
-
+import UserForm from './components/UserForm';
+import LoginForm from './components/LoginForm';
+import PlantForm from './components/PlantForm';
+import Header from '../src/components/Header';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Water our plant app!</h1>
-      <PlantForm /> 
+      <Header />
+      <LoginForm />
     </div>
   );
 };

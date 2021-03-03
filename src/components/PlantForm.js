@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Route, Link, Switch } from "react-router-dom";
-import styled from "styled-components";
-import * as yup from "yup";
-import plantFormSchema from "../utils/plantFormSchema";
+import React, { useState } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
+import styled from 'styled-components';
+import * as yup from 'yup';
+import plantFormSchema from '../utils/plantFormSchema';
 
 const initialState = {
-  nickname: "",
-  species: "",
-  h2oFrequency: "",
+  nickname: '',
+  species: '',
+  h2oFrequency: '',
 };
 const initialErrors = {
-  nickname: "",
-  species: "",
-  h2oFrequency: "",
+  nickname: '',
+  species: '',
+  h2oFrequency: '',
 };
 
 export default function PlantForm() {
@@ -24,7 +24,7 @@ export default function PlantForm() {
       .reach(plantFormSchema, inputName)
       .validate(inputValue)
       .then(() => {
-        setErrors({ ...errors, [inputName]: "" });
+        setErrors({ ...errors, [inputName]: '' });
       })
       .catch((err) => {
         setErrors({ ...errors, [inputName]: err.errors[0] });
@@ -33,7 +33,7 @@ export default function PlantForm() {
 
   const changeHandler = (e) => {
     const { name, type, value, checked } = e.target;
-    const valueToUse = type === "checked" ? checked : value;
+    const valueToUse = type === 'checked' ? checked : value;
     validate(name, valueToUse);
     setPlantFormValues({
       ...plantFormValues,
@@ -71,8 +71,8 @@ export default function PlantForm() {
             <input
               name="species"
               type="text"
-              value={plantFormValues.species}
-              onChange={changeHandler}
+              // {/* value={}nb
+              // onChange={} */}
               placeholder="Species"
             />
           </label>
@@ -92,11 +92,11 @@ export default function PlantForm() {
         </div>
       </form>
       <div>
-        <span style={{ color: "red" }}>{errors.nickname}</span>
+        <span style={{ color: 'red' }}>{errors.nickname}</span>
         <div></div>
-        <span style={{ color: "red" }}>{errors.species}</span>
+        <span style={{ color: 'red' }}>{errors.species}</span>
         <div></div>
-        <span style={{ color: "red" }}>{errors.h2oFrequency}</span>
+        <span style={{ color: 'red' }}>{errors.h2oFrequency}</span>
       </div>
     </div>
   );
