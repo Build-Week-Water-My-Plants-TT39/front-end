@@ -15,28 +15,56 @@ export const UPDATE_USER_LOADING = 'UPDATE_USER_LOADING';
 export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
 export const UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE';
 
+export const USER_LOGOUT = 'USER_LOGOUT';
+
 //SignUp Action Obj
-export const signUpLoading = (signup) => (dispatch) => {
+export const signUpUser = (signup) => (dispatch) => {
   dispatch({ type: SIGN_UP_LOADING });
 
   axiosWithAuth()
     .post('/auth/register', signup)
     .then((res) => {
-      console.log('SignUpSuccess', res);
+      console.log('SignUpSuccess', res.data);
       dispatch({ type: SIGN_UP_SUCCESS, payload: res.data });
       window.location.href = '/login';
     })
     .catch((err) => {
-      console.log('SignUpFail:', err);
+      console.log('SignUpFail:', err.message);
       dispatch({ type: SIGN_UP_FAILURE, payload: err.message });
     });
 };
 
-export const loginLoading = (login) => (dispatch) => {
-  dispatch({ type: LOGIN_LOADING });
+export const loginUser = (login) => (dispatch) => {
   window.localStorage.removeItem('token');
+  dispatch({ type: LOGIN_LOADING });
+
+  axiosWithAuth()
+    .post('/auth/login', login)
+    .then((res) => {
+      window.localStorage.setItem('token', res.data.token);
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: LOGIN_FAILURE, payload: err.message });
+    });
+};
+
+export const logoutUser = () => (dispatch) => {
+  window.localStorage.removeItem('token');
+  dispatch({ type: USER_LOGOUT });
 };
 
 export const updateUser = (userId, update) => (dispatch) => {
   dispatch({ type: UPDATE_USER_LOADING });
+
+  axiosWithAuth()
+    .put(`/auth/${userId}/update`)
+    .then((res) => {
+      console.log('Update User Success:', res.data);
+      dispatch({ type: UPDATE_USER_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      console.log('Update User Failure:', err.message);
+      dispatch({ type: UPDATE_USER_FAILURE, payload: err.message });
+    });
 };
