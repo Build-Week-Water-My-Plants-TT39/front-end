@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import * as yup from 'yup';
 import loginFormSchema from '../utils/loginFormSchema';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/userActions';
+import { useHistory } from 'react-router';
 
 //CSS Styling
 const StyledForm = styled.div`
@@ -54,11 +57,12 @@ const initialLogin = {
   password: '',
 };
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   //Setting State Hooks
   const [loginValue, setLoginValue] = useState(initialLogin);
   const [errors, setErrors] = useState(initialLogin);
   const [disabled, setDisabled] = useState(true);
+  const { push } = useHistory();
 
   //Creating form Validty with Yup
   const setLoginErrors = (name, value) => {
@@ -84,10 +88,20 @@ const LoginForm = () => {
   //Creating submit event
   const submitHandler = (event) => {
     event.preventDefault();
-    // setLoginValue({ username:'', password:''})
-    // const newUser = { username: loginValue.username.trim(), password: loginValue.password.trim() }
-    //Axios Post
+    const userObj = {
+      username: loginValue.username.trim(),
+      password: loginValue.password.trim(),
+    };
+    props.loginUser(userObj);
+    setLoginValue(initialLogin);
   };
+
+  //checks if isLogged in
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      push('/plants');
+    }
+  }, [props.isLoggedIn]);
 
   return (
     <StyledForm>
@@ -119,12 +133,17 @@ const LoginForm = () => {
           </label>
           <button disabled={disabled}>Login</button>
         </div>
-        <div>
-          <button>No account? Sign up!</button>
-        </div>
+        <div></div>
       </form>
+      <button onClick={() => push('/signup')}>No account? Sign up!</button>
     </StyledForm>
   );
 };
 
-export default LoginForm;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+  };
+};
+
+export default connect(mapStateToProps, { loginUser })(LoginForm);

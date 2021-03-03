@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LoginForm from './components/LoginForm';
 import Header from '../src/components/Header';
 import UserForm from './components/UserForm';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import PlantScreen from './components/PlantScreen';
 
@@ -11,15 +11,13 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Switch>
-        <Route path="/login">
-          <LoginForm />
-        </Route>
-        <Route>
-          <UserForm path="/signup" />
-        </Route>
-        <PrivateRoute path="/plants" component={PlantScreen} />
-      </Switch>
+      <Route path="/login">
+        <LoginForm />
+      </Route>
+      <Route path="/signup">
+        <UserForm />
+      </Route>
+      <PrivateRoute path="/plants" component={PlantScreen} />
     </div>
   );
 };

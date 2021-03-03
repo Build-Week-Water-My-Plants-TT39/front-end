@@ -14,8 +14,8 @@ import {
 const initialState = {
   user: {},
   isLoading: false,
-  errors: '',
-  isLoggedIn: window.localStorage.getItem('token'),
+  error: '',
+  isLoggedIn: window.localStorage.getItem('token') || false,
   isSignedUp: false,
 };
 

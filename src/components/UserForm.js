@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import userFormSchema from '../utils/userFormSchema';
 import * as yup from 'yup';
@@ -57,10 +57,13 @@ const UserForm = (props) => {
       phone_number: userFormValues.phone_number.trim(),
     };
     postNewUser(userObj);
+  };
+
+  useEffect(() => {
     if (props.isSignedUp) {
       push('/login');
     }
-  };
+  }, [props.isSignedUp]);
 
   return (
     <div>
