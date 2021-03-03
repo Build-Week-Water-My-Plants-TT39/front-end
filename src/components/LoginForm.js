@@ -81,6 +81,7 @@ const LoginForm = () => {
     setLoginErrors(name, value)
     setLoginValue({...loginValue, [name]: value})
   };
+  
 
   //Creating submit event
   const submitHandler = event => {
