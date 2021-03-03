@@ -24,12 +24,9 @@ export const signUpUser = (signup) => (dispatch) => {
   axiosWithAuth()
     .post('/auth/register', signup)
     .then((res) => {
-      console.log('SignUpSuccess', res.data);
       dispatch({ type: SIGN_UP_SUCCESS, payload: res.data });
-      window.location.href = '/login';
     })
     .catch((err) => {
-      console.log('SignUpFail:', err.message);
       dispatch({ type: SIGN_UP_FAILURE, payload: err.message });
     });
 };
