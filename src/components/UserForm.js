@@ -1,40 +1,47 @@
-import React, { useState } from "react";
-import { Route, Link, Switch } from "react-router-dom";
-import styled from "styled-components";
-import userFormSchema from "../utils/userFormSchema";
-import * as yup from "yup";
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import userFormSchema from '../utils/userFormSchema';
+import * as yup from 'yup';
+import { connect } from 'react-redux';
+import { signUpUser } from '../actions/userActions';
 
 const initialState = {
-  username: "",
-  password: "",
-  phone_number: "",
+  username: '',
+  password: '',
+  phone_number: '',
 };
 
 const initialErrors = {
-  username: "",
-  password: "",
-  phone_number: "",
+  username: '',
+  password: '',
+  phone_number: '',
 };
 
-export default function UserForm() {
+const UserForm = (props) => {
   const [userFormValues, setUserFormValues] = useState(initialState);
   const [errors, setErrors] = useState(initialErrors);
+  const { push } = useHistory();
 
   const validate = (inputName, inputValue) => {
     yup
       .reach(userFormSchema, inputName)
       .validate(inputValue)
       .then(() => {
-        setErrors({ ...errors, [inputName]: "" });
+        setErrors({ ...errors, [inputName]: '' });
       })
       .catch((err) => {
         setErrors({ ...errors, [inputName]: err.errors[0] });
       });
   };
 
+  const postNewUser = (newUser) => {
+    props.signUpUser(newUser);
+    setUserFormValues(initialState);
+  };
+
   const changeHandler = (e) => {
     const { name, type, value, checked } = e.target;
-    const valueToUse = type === "checked" ? checked : value;
+    const valueToUse = type === 'checked' ? checked : value;
     validate(name, valueToUse);
     setUserFormValues({
       ...userFormValues,
@@ -42,15 +49,21 @@ export default function UserForm() {
     });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-
     const userObj = {
       username: userFormValues.username.trim(),
       password: userFormValues.password.trim(),
       phone_number: userFormValues.phone_number.trim(),
     };
+    postNewUser(userObj);
   };
+
+  useEffect(() => {
+    if (props.isSignedUp) {
+      push('/login');
+    }
+  }, [props.isSignedUp]);
 
   return (
     <div>
@@ -91,4 +104,12 @@ export default function UserForm() {
       </div>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    isSignedUp: state.user.isSignedUp,
+  };
+};
+
+export default connect(mapStateToProps, { signUpUser })(UserForm);
