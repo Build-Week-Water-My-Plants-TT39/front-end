@@ -9,6 +9,7 @@ import { useHistory } from 'react-router';
 //CSS Styling
 const StyledForm = styled.div`
   text-align: center;
+  
 
   h2 {
     font-size: 3.2rem;
@@ -84,6 +85,7 @@ const LoginForm = (props) => {
     setLoginErrors(name, value);
     setLoginValue({ ...loginValue, [name]: value });
   };
+  
 
   //Creating submit event
   const submitHandler = (event) => {
