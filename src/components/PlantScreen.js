@@ -5,11 +5,12 @@ import { getPlants } from './../actions/plantActions';
 
 const PlantScreen = (props) => {
   const { userId } = useParams();
+  const getPlants = props.getPlants;
   console.log('plants', props.plants);
 
   useEffect(() => {
-    props.getPlants(userId);
-  }, [userId]);
+    getPlants(userId);
+  }, [userId, getPlants]);
 
   return (
     <div>

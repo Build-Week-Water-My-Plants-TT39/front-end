@@ -9,32 +9,31 @@ const StyledHeader = styled.div`
   height: 20vh;
   font-family: 'Shippori Mincho B1', serif;
 
-    h1{
-      font-size:4.2rem;
-      color: #E6E4CF;
-      text-shadow: 3px 3px #e4b297;
-      margin-left: 2%;
-    }
+  h1 {
+    font-size: 4.2rem;
+    color: #e6e4cf;
+    text-shadow: 3px 3px #e4b297;
+    margin-left: 2%;
+  }
 
-    nav{
-      margin: auto 10% auto 0;
-    }
+  nav {
+    margin: auto 10% auto 0;
+  }
 
-    a{
-      text-decoration: none;
-      font-size: 1.8rem;
-      padding: 10px 25px 10px 25px;
-      margin-right: 20%;
-      background-color: #E6E4CF;
-      border-radius: 15px 15px;
-      color: #363f34;
+  a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 10px 25px 10px 25px;
+    margin-right: 20%;
+    background-color: #e6e4cf;
+    border-radius: 15px 15px;
+    color: #363f34;
+  }
 
-    }
-
-    header{
-      display:flex;
-      justify-content: space-between;
-    }
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const Header = (props) => {
@@ -45,14 +44,14 @@ const Header = (props) => {
         <h1>Water Your Plant App</h1>
 
         <nav>
-        {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
-        <NavLink to="/signup">SignUp</NavLink>
-        {isLoggedIn && (
-          <NavLink to="/login" onClick={() => props.logoutUser()}>
-            {' '}
-            Logout
-          </NavLink>
-        )}
+          {!isLoggedIn ? (
+            <NavLink to="/login">Login</NavLink>
+          ) : (
+            <NavLink to="/login" onClick={() => props.logoutUser()}>
+              Logout
+            </NavLink>
+          )}
+          <NavLink to="/signup">SignUp</NavLink>
         </nav>
       </header>
     </StyledHeader>
