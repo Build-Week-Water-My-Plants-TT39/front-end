@@ -33,12 +33,15 @@ export const signUpUser = (signup) => (dispatch) => {
 
 export const loginUser = (login) => (dispatch) => {
   window.localStorage.removeItem('token');
+  window.localStorage.removeItem('userInfo');
   dispatch({ type: LOGIN_LOADING });
 
   axiosWithAuth()
     .post('/auth/login', login)
     .then((res) => {
       window.localStorage.setItem('token', res.data.token);
+      window.localStorage.setItem('userInfo', JSON.stringify(res.data));
+      console.log('userdata', res.data);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch((err) => {
@@ -48,6 +51,7 @@ export const loginUser = (login) => (dispatch) => {
 
 export const logoutUser = () => (dispatch) => {
   window.localStorage.removeItem('token');
+  window.localStorage.removeItem('userInfo');
   dispatch({ type: USER_LOGOUT });
 };
 

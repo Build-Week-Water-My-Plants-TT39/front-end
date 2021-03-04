@@ -37,7 +37,8 @@ const StyledHeader = styled.div`
 `;
 
 const Header = (props) => {
-  const { isLoggedIn } = props;
+  const { isLoggedIn, userId } = props;
+
   return (
     <StyledHeader>
       <header>
@@ -51,7 +52,11 @@ const Header = (props) => {
               Logout
             </NavLink>
           )}
-          <NavLink to="/signup">SignUp</NavLink>
+          {!isLoggedIn ? (
+            <NavLink to="/signup">SignUp</NavLink>
+          ) : (
+            <NavLink to={`/plants/${userId}`}>My Plants</NavLink>
+          )}
         </nav>
       </header>
     </StyledHeader>
@@ -61,6 +66,7 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    userId: state.user.user?.user_id,
   };
 };
 

@@ -6,6 +6,7 @@ import UserForm from './components/UserForm';
 import { Route } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import PlantScreen from './components/PlantScreen';
+import PlantDetails from './components/PlantDetails';
 
 const App = (props) => {
   return (
@@ -17,7 +18,12 @@ const App = (props) => {
       <Route path="/signup">
         <UserForm />
       </Route>
-      <PrivateRoute path={`/plants/:userId`} component={PlantScreen} />
+      <PrivateRoute exact path={`/plants/:userId`} component={PlantScreen} />
+      <PrivateRoute
+        exact
+        path={`/plants/edit/:plantId`}
+        component={PlantDetails}
+      />
     </div>
   );
 };
