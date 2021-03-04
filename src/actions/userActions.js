@@ -27,7 +27,7 @@ export const signUpUser = (signup) => (dispatch) => {
       dispatch({ type: SIGN_UP_SUCCESS, payload: res.data });
     })
     .catch((err) => {
-      dispatch({ type: SIGN_UP_FAILURE, payload: err.message });
+      dispatch({ type: SIGN_UP_FAILURE, payload: err.response.data.message });
     });
 };
 
@@ -42,7 +42,7 @@ export const loginUser = (login) => (dispatch) => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch((err) => {
-      dispatch({ type: LOGIN_FAILURE, payload: err.message });
+      dispatch({ type: LOGIN_FAILURE, payload: err.response.data.message });
     });
 };
 
@@ -62,6 +62,9 @@ export const updateUser = (userId, update) => (dispatch) => {
     })
     .catch((err) => {
       console.log('Update User Failure:', err.message);
-      dispatch({ type: UPDATE_USER_FAILURE, payload: err.message });
+      dispatch({
+        type: UPDATE_USER_FAILURE,
+        payload: err.response.data.message,
+      });
     });
 };

@@ -14,81 +14,83 @@ import {
 } from '../actions/plantActions';
 
 const initialState = {
-  plant: {},
+  plants: [],
+  isLoading: false,
+  error: '',
 };
 
 const plantReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PLANTS_LOADING:
       return {
-        plant: {
-          ...state.plant,
-        },
+        ...state,
+        isLoading: true,
+        error: '',
       };
     case GET_PLANTS_SUCCESS:
       return {
-        plant: {
-          ...state.plant,
-        },
+        ...state,
+        isLoading: false,
+        plants: [...state.plants, action.payload],
       };
     case GET_PLANTS_FAILURE:
       return {
-        plant: {
-          ...state.plant,
-        },
+        ...state,
+        error: action.payload,
+        isLoading: false,
       };
     case POST_PLANT_LOADING:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case POST_PLANT_SUCCESS:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case POST_PLANT_FAILURE:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case UPDATE_PLANT_LOADING:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case UPDATE_PLANT_SUCCESS:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case UPDATE_PLANT_FAILURE:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case DELETE_PLANT_LOADING:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case DELETE_PLANT_SUCCESS:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     case DELETE_PLANT_FAILURE:
       return {
-        plant: {
-          ...state.plant,
+        plants: {
+          ...state.plants,
         },
       };
     default:

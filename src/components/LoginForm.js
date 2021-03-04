@@ -101,9 +101,9 @@ const LoginForm = (props) => {
   //checks if isLogged in
   useEffect(() => {
     if (props.isLoggedIn) {
-      push('/plants');
+      push(`/plants/${props.userId}`);
     }
-  }, [props.isLoggedIn]);
+  }, [props.isLoggedIn, props.userId, push]);
 
   return (
     <StyledForm>
@@ -113,8 +113,12 @@ const LoginForm = (props) => {
           <p>Sign in below</p>
         </div>
         <div>
-          <div style={{ color: 'red' }}>{errors.password}</div>
-          <div style={{ color: 'red' }}>{errors.username}</div>
+          {errors.password && (
+            <div style={{ color: 'red' }}>{errors.password}</div>
+          )}
+          {errors.username && (
+            <div style={{ color: 'red' }}>{errors.username}</div>
+          )}
           <label>
             <input
               name="username"
@@ -135,7 +139,7 @@ const LoginForm = (props) => {
           </label>
           <button disabled={disabled}>Login</button>
         </div>
-        <div></div>
+        {props.apiError && <div style={{ color: 'red' }}>{props.apiError}</div>}
       </form>
       <button onClick={() => push('/signup')}>No account? Sign up!</button>
     </StyledForm>
@@ -145,6 +149,8 @@ const LoginForm = (props) => {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    apiError: state.user.error,
+    userId: state.user.user.user_id,
   };
 };
 

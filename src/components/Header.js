@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { logoutUser } from './../actions/userActions';
+import { connect } from 'react-redux';
 
 const StyledHeader = styled.div`
   background-image: url('https://64.media.tumblr.com/0dc56db100ace1a17b621955eb9e0146/tumblr_okemrkmckY1ud1j0po3_1280.png');
@@ -35,18 +37,32 @@ const StyledHeader = styled.div`
     }
 `;
 
-const Header = () => {
+const Header = (props) => {
+  const { isLoggedIn } = props;
   return (
     <StyledHeader>
       <header>
         <h1>Water Your Plant App</h1>
+
         <nav>
-        <NavLink to="/login">Login</NavLink>
+        {!isLoggedIn && <NavLink to="/login">Login</NavLink>}
         <NavLink to="/signup">SignUp</NavLink>
+        {isLoggedIn && (
+          <NavLink to="/login" onClick={() => props.logoutUser()}>
+            {' '}
+            Logout
+          </NavLink>
+        )}
         </nav>
       </header>
     </StyledHeader>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+  };
+};
+
+export default connect(mapStateToProps, { logoutUser })(Header);
