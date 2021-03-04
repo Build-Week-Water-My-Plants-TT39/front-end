@@ -5,17 +5,20 @@ import * as yup from "yup";
 import { connect } from "react-redux";
 import { signUpUser } from "../actions/userActions";
 import styled from "styled-components";
-import { useTransition, animated } from "react-spring";
 
 const StyledDiv = styled.div`
-  margin: 5% 25%;
-  width: 40%;
+  margin: 8% 22%;
+  width: 50%;
   padding: 5%;
   display: inline-block;
-  background-image: url("https://tinyurl.com/yadytxp6");
-  background-size: 100%;
-  background-position: bottom-center;
-  border-radius: 10%;
+  background-image: url("https://tinyurl.com/y8mhthym");
+  background-size: 80%;
+  background-position: center;
+  border-radius: 2em;
+  height: 40vh;
+  box-shadow: 7px 7px 5px 5px #e6e4cf;
+  border: 1px solid #e6e4cf;
+  font-family: "Shippori Mincho B1", serif;
 
   .password-control {
     margin-top: 10px;
@@ -24,26 +27,54 @@ const StyledDiv = styled.div`
 
   input {
     text-align: center;
-    border-radius: 3em;
+    border-radius: 2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 1.5%;
+    font-size: 1em;
+    background-image: url("https://tinyurl.com/y8mhthym");
+    background-size: 0.2%;
+    color: green;
+    font-weight: bold;
+    margin: 2.5% 33%;
+    border: green solid 2px;
+    box-shadow: 7px 7px;
   }
 
   button {
-    margin-top: 10px;
-    margin-bottom: 10px;
     border-radius: 0.5em;
     width: 20%;
-    background-color: white;
-    font-size: 1em;
+    margin: 9% 36%;
+    background-image: url("https://tinyurl.com/y8mhthym");
+    background-size: 0.2%;
+    font-size: 2em;
+    padding: 5;
     color: green;
     font-weight: bold;
+    text-align: center;
+    border: green solid 2px;
+    box-shadow: 7px 7px;
+
+    &:hover {
+      transform: scale(1.3);
+      transition: 1s;
+    }
   }
 
   span {
-    color: ;
-    font-size: 1.5rem;
+    color: green;
+    font-size: 1rem;
     font-weight: bold;
     background-color: transparent;
-    border-radius: 1em;
+    margin: 0 -32%;
+  }
+
+  h1 {
+    margin: -9% 25%;
+    padding: 6%;
+    margin-bottom: -5%;
+    font-weight: bold;
+    color: green;
   }
 `;
 
@@ -109,6 +140,7 @@ const UserForm = (props) => {
 
   return (
     <StyledDiv>
+      <h1>🌿🌿Sign up!🌿🌿</h1>
       <form onSubmit={submitHandler}>
         <div>
           <input
@@ -147,12 +179,6 @@ const UserForm = (props) => {
           <button>Submit</button>
         </div>
       </form>
-
-      {/* <span>{errors.username}</span>
-
-      <span>{errors.password}</span>
-
-      <span>{errors.phone_number}</span> */}
 
       <div> {props.apiError && <span>{props.apiError}</span>}</div>
     </StyledDiv>
