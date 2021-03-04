@@ -63,7 +63,7 @@ const UserForm = (props) => {
     if (props.isSignedUp) {
       push('/login');
     }
-  }, [props.isSignedUp]);
+  }, [props.isSignedUp, push]);
 
   return (
     <div>
@@ -101,6 +101,7 @@ const UserForm = (props) => {
         <span>{errors.username}</span>
         <span>{errors.password}</span>
         <span>{errors.phone_number}</span>
+        {props.apiError && <span>{props.apiError}</span>}
       </div>
     </div>
   );
@@ -109,6 +110,7 @@ const UserForm = (props) => {
 const mapStateToProps = (state) => {
   return {
     isSignedUp: state.user.isSignedUp,
+    apiError: state.user.error,
   };
 };
 
