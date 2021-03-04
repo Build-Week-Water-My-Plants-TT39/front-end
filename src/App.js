@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import PlantScreen from './components/PlantScreen';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="App">
       <Header />
@@ -17,7 +17,7 @@ const App = () => {
       <Route path="/signup">
         <UserForm />
       </Route>
-      <PrivateRoute path="/plants" component={PlantScreen} />
+      <PrivateRoute path={`/plants/:userId`} component={PlantScreen} />
     </div>
   );
 };
