@@ -22,10 +22,10 @@ export const getPlants = (userId) => (dispatch) => {
   axiosWithAuth()
     .get(`/plants/${userId}`)
     .then((res) => {
-      console.log('getplantssuccess', res);
       dispatch({ type: GET_PLANTS_SUCCESS, payload: res.data });
     })
     .catch((err) => {
+      console.log(err.response);
       dispatch({
         type: GET_PLANTS_FAILURE,
         payload: err.response.data.message,
@@ -35,12 +35,47 @@ export const getPlants = (userId) => (dispatch) => {
 
 export const postPlant = (userId, plantInfo) => (dispatch) => {
   dispatch({ type: POST_PLANT_LOADING });
+  axiosWithAuth()
+    .post(`/plants/${userId}`, plantInfo)
+    .then((res) => {
+      dispatch({ type: POST_PLANT_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: POST_PLANT_FAILURE,
+        payload: err.response.data.message,
+      });
+    });
 };
 
-export const updatePlant = (plantId) => (dispatch) => {
+export const updatePlant = (plantId, plantInfo) => (dispatch) => {
   dispatch({ type: UPDATE_PLANT_LOADING });
+
+  axiosWithAuth()
+    .put(`/plants/${plantId}`, plantInfo)
+    .then((res) => {
+      dispatch({ type: UPDATE_PLANT_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: UPDATE_PLANT_FAILURE,
+        payload: err.response.data.message,
+      });
+    });
 };
 
 export const deletePlant = (plantId) => (dispatch) => {
   dispatch({ type: DELETE_PLANT_LOADING });
+
+  axiosWithAuth()
+    .delete(`/plants/${plantId}`)
+    .then((res) => {
+      dispatch({ type: DELETE_PLANT_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: DELETE_PLANT_FAILURE,
+        payload: err.response.data.message,
+      });
+    });
 };
