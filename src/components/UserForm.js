@@ -1,20 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import userFormSchema from '../utils/userFormSchema';
-import * as yup from 'yup';
-import { connect } from 'react-redux';
-import { signUpUser } from '../actions/userActions';
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import userFormSchema from "../utils/userFormSchema";
+import * as yup from "yup";
+import { connect } from "react-redux";
+import { signUpUser } from "../actions/userActions";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  margin: 0 auto;
+  width: 40%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://tinyurl.com/ycg4krmf");
+  background-size: 100%;
+  background-position: bottom-center;
+  border-radius: 1em;
+
+  .password-control {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  input {
+    border-radius: 1em;
+  }
+
+  button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 0.5em;
+  }
+
+  span {
+    color: red;
+    font-size: 1.2rem;
+  }
+`;
 
 const initialState = {
-  username: '',
-  password: '',
-  phone_number: '',
+  username: "",
+  password: "",
+  phone_number: "",
 };
 
 const initialErrors = {
-  username: '',
-  password: '',
-  phone_number: '',
+  username: "",
+  password: "",
+  phone_number: "",
 };
 
 const UserForm = (props) => {
@@ -27,7 +60,7 @@ const UserForm = (props) => {
       .reach(userFormSchema, inputName)
       .validate(inputValue)
       .then(() => {
-        setErrors({ ...errors, [inputName]: '' });
+        setErrors({ ...errors, [inputName]: "" });
       })
       .catch((err) => {
         setErrors({ ...errors, [inputName]: err.errors[0] });
@@ -41,7 +74,7 @@ const UserForm = (props) => {
 
   const changeHandler = (e) => {
     const { name, type, value, checked } = e.target;
-    const valueToUse = type === 'checked' ? checked : value;
+    const valueToUse = type === "checked" ? checked : value;
     validate(name, valueToUse);
     setUserFormValues({
       ...userFormValues,
@@ -61,48 +94,53 @@ const UserForm = (props) => {
 
   useEffect(() => {
     if (props.isSignedUp) {
-      push('/login');
+      push("/login");
     }
   }, [props.isSignedUp]);
 
   return (
-    <div>
+    <StyledDiv>
       <form onSubmit={submitHandler}>
-        <label>
+        <div>
           <input
+            className="username-control"
             name="username"
             type="text"
             value={userFormValues.username}
             onChange={changeHandler}
             placeholder="Username"
           />
-        </label>
-        <label>
+        </div>
+        <div>
           <input
+            className="password-control"
             name="password"
             type="password"
             value={userFormValues.password}
             onChange={changeHandler}
             placeholder="Password"
           />
-        </label>
-        <label>
+        </div>
+        <div>
           <input
+            className="phone_number-control"
             name="phone_number"
             type="text"
             value={userFormValues.phone_number}
             onChange={changeHandler}
             placeholder="Phone Number"
           />
-        </label>
-        <button>Submit</button>
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
       </form>
       <div>
         <span>{errors.username}</span>
         <span>{errors.password}</span>
         <span>{errors.phone_number}</span>
       </div>
-    </div>
+    </StyledDiv>
   );
 };
 
