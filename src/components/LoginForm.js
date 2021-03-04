@@ -36,7 +36,8 @@ const StyledForm = styled.div`
   }
 
   form {
-    background-color: #e6ebe7;
+    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pdflowerset17-gloy-01_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=0e68a7d5ce0710c5858aee0ec781871a);
+    background-size:100% 100%;
     border-radius: 25px 25px;
     width: 50%;
     padding-bottom: 1%;
@@ -44,7 +45,6 @@ const StyledForm = styled.div`
     display:flex;
     flex-direction: column;
     box-shadow: 10px 15px 15px #383a3d;
-    border: 1px solid darkgray;
   }
 
   input {
