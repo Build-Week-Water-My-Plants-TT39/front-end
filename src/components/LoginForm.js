@@ -9,13 +9,11 @@ import { useHistory } from 'react-router';
 //CSS Styling
 
 const StyledH1 = styled.div`
-
   background-image: url(https://i2.wp.com/wallpaperboat.com/wp-content/uploads/2020/04/green-aesthetic-wallpaper-download.jpg);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-
-
+  background-size: 10% 100%;
 `
 
 const StyledForm = styled.div`
@@ -40,7 +38,7 @@ const StyledForm = styled.div`
     background-size:100% 100%;
     border-radius: 25px 25px;
     width: 50%;
-    padding-bottom: 1%;
+    padding-bottom: 2.5%;
     margin: 3% auto 0 auto;
     display:flex;
     flex-direction: column;
@@ -61,7 +59,7 @@ const StyledForm = styled.div`
     border-radius: 15px 15px;
     padding: 8px;
     background-color: #acc8af;
-    border: none;
+    border: 1px solid gray;
     width: 20%;
     margin: 0 auto 5% auto;
     color: #363f34;
@@ -172,8 +170,10 @@ const LoginForm = (props) => {
           </div>
           <button disabled={disabled}>Login</button>
         </div>
+        <div>
         <p>No account?</p>
       <button onClick={() => push('/signup')}>Sign up!</button>
+        </div>
         {props.apiError && <div style={{ color: 'red' }}>{props.apiError}</div>}
       </form>
     </StyledForm>
