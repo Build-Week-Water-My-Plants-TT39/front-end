@@ -5,17 +5,17 @@ import * as yup from "yup";
 import { connect } from "react-redux";
 import { signUpUser } from "../actions/userActions";
 import styled from "styled-components";
+import { useTransition, animated } from "react-spring";
 
 const StyledDiv = styled.div`
-  margin: 0 auto;
+  margin: 5% 25%;
   width: 40%;
   padding: 5%;
-  display: flex;
-  justify-content: center;
-  background-image: url("https://tinyurl.com/ycg4krmf");
+  display: inline-block;
+  background-image: url("https://tinyurl.com/yadytxp6");
   background-size: 100%;
   background-position: bottom-center;
-  border-radius: 1em;
+  border-radius: 10%;
 
   .password-control {
     margin-top: 10px;
@@ -23,18 +23,27 @@ const StyledDiv = styled.div`
   }
 
   input {
-    border-radius: 1em;
+    text-align: center;
+    border-radius: 3em;
   }
 
   button {
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 0.5em;
+    width: 20%;
+    background-color: white;
+    font-size: 1em;
+    color: green;
+    font-weight: bold;
   }
 
   span {
-    color: red;
-    font-size: 1.2rem;
+    color: ;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 1em;
   }
 `;
 
@@ -110,6 +119,7 @@ const UserForm = (props) => {
             onChange={changeHandler}
             placeholder="Username"
           />
+          <span>{errors.username}</span>
         </div>
         <div>
           <input
@@ -120,6 +130,7 @@ const UserForm = (props) => {
             onChange={changeHandler}
             placeholder="Password"
           />
+          <span>{errors.password}</span>
         </div>
         <div>
           <input
@@ -130,17 +141,20 @@ const UserForm = (props) => {
             onChange={changeHandler}
             placeholder="Phone Number"
           />
+          <span> {errors.phone_number}</span>
         </div>
         <div>
           <button>Submit</button>
         </div>
       </form>
-      <div>
-        <span>{errors.username}</span>
-        <span>{errors.password}</span>
-        <span>{errors.phone_number}</span>
-        {props.apiError && <span>{props.apiError}</span>}
-      </div>
+
+      {/* <span>{errors.username}</span>
+
+      <span>{errors.password}</span>
+
+      <span>{errors.phone_number}</span> */}
+
+      <div> {props.apiError && <span>{props.apiError}</span>}</div>
     </StyledDiv>
   );
 };
