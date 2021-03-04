@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import { useHistory } from 'react-router';
 import { getPlants } from './../actions/plantActions';
 import Plant from './Plant';
 import PlantForm from './PlantForm';

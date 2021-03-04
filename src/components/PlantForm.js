@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Route,
-  Link,
-  Switch,
-  useRouteMatch,
-  useParams,
-  useHistory,
-} from 'react-router-dom';
-import styled from 'styled-components';
+import { useRouteMatch, useParams, useHistory } from 'react-router-dom';
 import * as yup from 'yup';
 import plantFormSchema from '../utils/plantFormSchema';
 import { connect } from 'react-redux';
