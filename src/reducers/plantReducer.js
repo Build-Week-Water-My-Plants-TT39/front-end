@@ -17,6 +17,7 @@ const initialState = {
   plants: [],
   isLoading: false,
   error: '',
+  message: '',
 };
 
 const plantReducer = (state = initialState, action) => {
@@ -31,7 +32,7 @@ const plantReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        plants: [...state.plants, action.payload],
+        plants: action.payload,
       };
     case GET_PLANTS_FAILURE:
       return {
@@ -41,57 +42,57 @@ const plantReducer = (state = initialState, action) => {
       };
     case POST_PLANT_LOADING:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: true,
+        error: '',
       };
     case POST_PLANT_SUCCESS:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: false,
+        plants: [...state.plants, action.payload],
       };
     case POST_PLANT_FAILURE:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: false,
+        error: action.payload,
       };
     case UPDATE_PLANT_LOADING:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: true,
+        error: '',
       };
     case UPDATE_PLANT_SUCCESS:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: false,
+        message: action.payload,
       };
     case UPDATE_PLANT_FAILURE:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        error: action.payload,
+        isLoading: false,
       };
     case DELETE_PLANT_LOADING:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: true,
+        error: '',
       };
     case DELETE_PLANT_SUCCESS:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        isLoading: false,
+        message: action.payload,
       };
     case DELETE_PLANT_FAILURE:
       return {
-        plants: {
-          ...state.plants,
-        },
+        ...state,
+        error: action.payload,
+        isLoading: false,
       };
     default:
       return state;

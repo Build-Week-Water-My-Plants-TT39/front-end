@@ -12,7 +12,7 @@ import {
 } from '../actions/userActions';
 
 const initialState = {
-  user: {},
+  user: JSON.parse(window.localStorage.getItem('userInfo')) || {},
   isLoading: false,
   error: '',
   isLoggedIn: window.localStorage.getItem('token') || false,
