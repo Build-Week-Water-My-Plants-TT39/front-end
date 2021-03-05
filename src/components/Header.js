@@ -5,19 +5,20 @@ import { logoutUser } from './../actions/userActions';
 import { connect } from 'react-redux';
 
 const StyledHeader = styled.div`
-  background-image: url('https://64.media.tumblr.com/0dc56db100ace1a17b621955eb9e0146/tumblr_okemrkmckY1ud1j0po3_1280.png');
+  background-image: url('https://i2.wp.com/wallpaperboat.com/wp-content/uploads/2020/04/green-aesthetic-wallpaper-download.jpg');
   height: 20vh;
   font-family: 'Shippori Mincho B1', serif;
 
   h1 {
     font-size: 4.2rem;
     color: #e6e4cf;
-    text-shadow: 3px 3px #e4b297;
+    text-shadow: 3px 3px #ab8a6f;
     margin-left: 2%;
   }
 
   nav {
-    margin: auto 10% auto 0;
+    margin: auto 0.5% auto 0;
+    width: 30%;
   }
 
   a {
@@ -53,7 +54,7 @@ const Header = (props) => {
             </NavLink>
           )}
           {!isLoggedIn ? (
-            <NavLink to="/signup">SignUp</NavLink>
+            <NavLink to="/signup">Sign Up</NavLink>
           ) : (
             <NavLink to={`/plants/${userId}`}>My Plants</NavLink>
           )}

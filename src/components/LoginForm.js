@@ -7,13 +7,21 @@ import { loginUser } from '../actions/userActions';
 import { useHistory } from 'react-router';
 
 //CSS Styling
+
+const StyledH1 = styled.div`
+  background-image: url(https://i2.wp.com/wallpaperboat.com/wp-content/uploads/2020/04/green-aesthetic-wallpaper-download.jpg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 10% 100%;
+`
+
 const StyledForm = styled.div`
   text-align: center;
   
 
   h2 {
-    font-size: 3.2rem;
-    border-bottom: 1px solid black;
+    font-size: 4rem;
     width: 75%;
     margin-right: auto;
     margin-left: auto;
@@ -26,16 +34,24 @@ const StyledForm = styled.div`
   }
 
   form {
-    background-color: #e6ebe7;
+    background-image: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/pdflowerset17-gloy-01_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=0e68a7d5ce0710c5858aee0ec781871a);
+    background-size:100% 100%;
     border-radius: 25px 25px;
     width: 50%;
-    height: 40vh;
-    margin: 0 auto;
+    padding-bottom: 2.5%;
+    margin: 3% auto 0 auto;
+    display:flex;
+    flex-direction: column;
+    box-shadow: 10px 15px 15px #383a3d;
   }
 
   input {
     font-size: 1.2rem;
-    margin: 0 5% 5% 1%;
+    border-radius: 10px 10px;
+    margin-bottom: 3%;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
   }
 
   button {
@@ -43,7 +59,10 @@ const StyledForm = styled.div`
     border-radius: 15px 15px;
     padding: 8px;
     background-color: #acc8af;
-    border: 1px solid grey;
+    border: 1px solid gray;
+    width: 20%;
+    margin: 0 auto 5% auto;
+    color: #363f34;
 
     &:hover {
       transform: scale(1.2);
@@ -51,6 +70,12 @@ const StyledForm = styled.div`
     }
   }
 `;
+
+const StyledError = styled.div`
+
+
+`
+
 
 //Creating initial login values
 const initialLogin = {
@@ -109,39 +134,48 @@ const LoginForm = (props) => {
     <StyledForm>
       <form onSubmit={submitHandler}>
         <div>
-          <h2>User login</h2>
+          <StyledH1>
+            <h2>User login</h2>
+          </StyledH1>
           <p>Sign in below</p>
         </div>
         <div>
           {errors.password && (
-            <div style={{ color: 'red' }}>{errors.password}</div>
+            <StyledError style={{ color: 'red' }}>{errors.password}</StyledError>
           )}
           {errors.username && (
-            <div style={{ color: 'red' }}>{errors.username}</div>
+            <StyledForm style={{ color: 'red' }}>{errors.username}</StyledForm>
           )}
-          <label>
-            <input
-              name="username"
-              type="text"
-              value={loginValue.username}
-              onChange={changeHandler}
-              placeholder="Username"
-            />
-          </label>
-          <label>
-            <input
-              name="password"
-              type="password"
-              value={loginValue.password}
-              onChange={changeHandler}
-              placeholder="Password"
-            />
-          </label>
+          <div>
+            <label>
+              <input
+                name="username"
+                type="text"
+                value={loginValue.username}
+                onChange={changeHandler}
+                placeholder="Username"
+                />
+            </label>
+          </div>
+          <div>
+            <label>
+              <input
+                name="password"
+                type="password"
+                value={loginValue.password}
+                onChange={changeHandler}
+                placeholder="Password"
+                />
+            </label>
+          </div>
           <button disabled={disabled}>Login</button>
+        </div>
+        <div>
+        <p>No account?</p>
+      <button onClick={() => push('/signup')}>Sign up!</button>
         </div>
         {props.apiError && <div style={{ color: 'red' }}>{props.apiError}</div>}
       </form>
-      <button onClick={() => push('/signup')}>No account? Sign up!</button>
     </StyledForm>
   );
 };
