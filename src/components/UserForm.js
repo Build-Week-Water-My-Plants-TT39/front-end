@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-import userFormSchema from "../utils/userFormSchema";
-import * as yup from "yup";
-import { connect } from "react-redux";
-import { signUpUser } from "../actions/userActions";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import userFormSchema from '../utils/userFormSchema';
+import * as yup from 'yup';
+import { connect } from 'react-redux';
+import { signUpUser } from '../actions/userActions';
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   margin: 8% 22%;
   width: 50%;
   padding: 5%;
   display: inline-block;
-  background-image: url("https://tinyurl.com/y8mhthym");
+  background-image: url('https://tinyurl.com/y8mhthym');
   background-size: 80%;
   background-position: center;
   border-radius: 2em;
   height: 40vh;
   box-shadow: 7px 7px 5px 5px #e6e4cf;
   border: 1px solid #e6e4cf;
-  font-family: "Shippori Mincho B1", serif;
+  font-family: 'Shippori Mincho B1', serif;
 
   .password-control {
     margin-top: 10px;
@@ -32,20 +32,21 @@ const StyledDiv = styled.div`
     margin-bottom: 20px;
     padding: 1.5%;
     font-size: 1em;
-    background-image: url("https://tinyurl.com/y8mhthym");
+    background-image: url('https://tinyurl.com/y8mhthym');
     background-size: 0.2%;
     color: green;
     font-weight: bold;
     margin: 2.5% 33%;
     border: green solid 2px;
     box-shadow: 7px 7px;
+    outline: none;
   }
 
   button {
     border-radius: 0.5em;
     width: 20%;
     margin: 9% 36%;
-    background-image: url("https://tinyurl.com/y8mhthym");
+    background-image: url('https://tinyurl.com/y8mhthym');
     background-size: 0.2%;
     font-size: 2em;
     padding: 5;
@@ -79,15 +80,15 @@ const StyledDiv = styled.div`
 `;
 
 const initialState = {
-  username: "",
-  password: "",
-  phone_number: "",
+  username: '',
+  password: '',
+  phone_number: '',
 };
 
 const initialErrors = {
-  username: "",
-  password: "",
-  phone_number: "",
+  username: '',
+  password: '',
+  phone_number: '',
 };
 
 const UserForm = (props) => {
@@ -100,7 +101,7 @@ const UserForm = (props) => {
       .reach(userFormSchema, inputName)
       .validate(inputValue)
       .then(() => {
-        setErrors({ ...errors, [inputName]: "" });
+        setErrors({ ...errors, [inputName]: '' });
       })
       .catch((err) => {
         setErrors({ ...errors, [inputName]: err.errors[0] });
@@ -114,7 +115,7 @@ const UserForm = (props) => {
 
   const changeHandler = (e) => {
     const { name, type, value, checked } = e.target;
-    const valueToUse = type === "checked" ? checked : value;
+    const valueToUse = type === 'checked' ? checked : value;
     validate(name, valueToUse);
     setUserFormValues({
       ...userFormValues,
@@ -134,7 +135,7 @@ const UserForm = (props) => {
 
   useEffect(() => {
     if (props.isSignedUp) {
-      push("/login");
+      push('/login');
     }
   }, [props.isSignedUp, push]);
 

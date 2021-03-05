@@ -1,0 +1,152 @@
+.App {
+  font-family: 'Shippori Mincho B1', monospace;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: whitesmoke;
+}
+
+#plant-screen-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#plant-screen-div h1 {
+  width: 60%;
+  background-image: url("https://i2.wp.com/wallpaperboat.com/wp-content/uploads/2020/04/green-aesthetic-wallpaper-download.jpg");
+  background-clip: text;
+  text-align: center;
+  color: transparent;
+  font-size: 3rem;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #353b3c;
+          text-decoration-color: #353b3c;
+  text-underline-offset: 15px;
+  text-transform: capitalize;
+}
+
+#plant-screen-div h1::-moz-selection {
+  color: #ab8a6f;
+}
+
+#plant-screen-div h1::selection {
+  color: #ab8a6f;
+}
+
+#wrapper-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40%;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  margin: 2% 5% 0;
+  -webkit-box-shadow: 1px 1px 1px #353b3c;
+          box-shadow: 1px 1px 1px #353b3c;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #f0faf4;
+}
+
+#wrapper-div:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  border-bottom: 1px solid #ab8a6f;
+  -webkit-box-shadow: 2px 2px 1px #353b3c;
+          box-shadow: 2px 2px 1px #353b3c;
+}
+
+#plant-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  text-transform: capitalize;
+  width: 50%;
+}
+
+#plant-div h2 {
+  color: #e6e4cf;
+  text-shadow: 2px 2px 1px #353b3c;
+  font-size: 2rem;
+  text-decoration: underline;
+  margin: 1% auto;
+}
+
+#plant-div h2::-moz-selection {
+  color: #ab8a6f;
+}
+
+#plant-div h2::selection {
+  color: #ab8a6f;
+}
+
+#plant-div p {
+  color: #e6e4cf;
+  text-shadow: 2px 2px 1px #353b3c;
+  font-size: 1.6rem;
+  margin: 1% auto 1%;
+}
+
+#plant-div p::-moz-selection {
+  color: #ab8a6f;
+}
+
+#plant-div p::selection {
+  color: #ab8a6f;
+}
+
+#plant-div img {
+  max-width: 100%;
+  margin: 4% auto 2%;
+  border-radius: 50px;
+  -webkit-box-shadow: 4px 4px 2px #353b3c;
+          box-shadow: 4px 4px 2px #353b3c;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#plant-div img:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 10px 10px 5px #353b3c;
+          box-shadow: 10px 10px 5px #353b3c;
+}
+
+#plant-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 1px 1px 1px #353b3c;
+          box-shadow: 1px 1px 1px #353b3c;
+  border-radius: 15px;
+}
+/*# sourceMappingURL=appStyles.css.map */

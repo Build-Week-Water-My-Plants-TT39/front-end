@@ -17,11 +17,12 @@ const PlantScreen = (props) => {
 
   return (
     <>
-      <div>
-        <h1>Here are your plants.</h1>
+      <div id="plant-screen-div">
+        <h1>Enjoy your plants!</h1>
         {plantArr.map((plant) => {
           return (
             <div
+              id="wrapper-div"
               key={plant.plant_id}
               onClick={() => push(`/plants/edit/${plant.plant_id}`)}>
               <Plant
