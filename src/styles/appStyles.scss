@@ -104,3 +104,18 @@ $accentcolor: #353b3c;
   box-shadow: 1px 1px 1px $accentcolor;
   border-radius: 15px;
 }
+#delete-btn {
+  font-size: 1.2rem;
+  border-radius: 15px 15px;
+  padding: 8px;
+  background-color: #dc7373;
+  border: 1px solid gray;
+  margin: 0 auto 5% auto;
+  color: #363f34;
+  margin-top: 2%;
+
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+}

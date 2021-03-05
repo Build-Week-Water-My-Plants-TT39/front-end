@@ -149,4 +149,22 @@
           box-shadow: 1px 1px 1px #353b3c;
   border-radius: 15px;
 }
+
+#delete-btn {
+  font-size: 1.2rem;
+  border-radius: 15px 15px;
+  padding: 8px;
+  background-color: #dc7373;
+  border: 1px solid gray;
+  margin: 0 auto 5% auto;
+  color: #363f34;
+  margin-top: 2%;
+}
+
+#delete-btn:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
 /*# sourceMappingURL=appStyles.css.map */

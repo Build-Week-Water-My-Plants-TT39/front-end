@@ -28,7 +28,9 @@ function PlantDetails(props) {
         frequency={plantObj[0]?.h2oFrequency}
       />
       <PlantForm />
-      <button onClick={deletePlant}>Delete Plant</button>
+      <button onClick={deletePlant} id="delete-btn">
+        Delete Plant
+      </button>
     </div>
   );
 }

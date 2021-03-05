@@ -10,6 +10,11 @@ const StyledHeader = styled.div`
   font-family: 'Shippori Mincho B1', serif;
   border-radius: 15px;
 
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   h1 {
     font-size: 4.2rem;
     color: #e6e4cf;
@@ -22,23 +27,22 @@ const StyledHeader = styled.div`
   }
 
   nav {
-    margin: auto 0.5% auto 0;
-    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right: 3%;
   }
 
   a {
     text-decoration: none;
-    font-size: 1.8rem;
-    padding: 10px 25px 10px 25px;
+    font-size: 1.6rem;
+    padding: 10px 20px 10px;
     margin-right: 20%;
     background-color: #e6e4cf;
     border-radius: 15px 15px;
     color: #363f34;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
+    white-space: nowrap;
   }
 `;
 
@@ -48,7 +52,7 @@ const Header = (props) => {
   return (
     <StyledHeader>
       <header>
-        <h1>Water Your Plant App</h1>
+        <h1>Water Your Plants!</h1>
 
         <nav>
           {!isLoggedIn ? (

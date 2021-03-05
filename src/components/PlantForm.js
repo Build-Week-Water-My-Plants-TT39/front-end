@@ -7,55 +7,48 @@ import { postPlant, updatePlant, getPlants } from './../actions/plantActions';
 import styled from 'styled-components';
 
 const StyledPlant = styled.div`
-
-font-size: 1.8rem;
-margin: 0 auto;
-text-align: center;
-
-form{
-  background-image: url(https://claire-ince.com/wp-content/uploads/2019/01/plant-header.jpg);
-  background-size:100% 100%;
-  border-radius: 25px 25px;
-  width: 50%;
-  padding-bottom: 17%;
-  margin: 3% auto 0 auto;
-  display:flex;
-  flex-direction: column;
-  box-shadow: 10px 15px 15px #383a3d;
-}
-
-section {
-  margin-top: 
-}
-
-input {
-  font-size: 1.2rem;
-  border-radius: 10px 10px;
-  margin-bottom: 3%;
+  font-size: 1.8rem;
+  margin: 0 auto;
   text-align: center;
-  padding: 5px;
-  border: 1px solid black;
-}
 
-button {
-  font-size: 1.2rem;
-  border-radius: 15px 15px;
-  padding: 8px;
-  background-color: #acc8af;
-  border: 1px solid gray;
-  width: 20%;
-  margin: 0 auto 5% auto;
-  color: #363f34;
-
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.5s;
+  form {
+    background-image: url(https://claire-ince.com/wp-content/uploads/2019/01/plant-header.jpg);
+    background-size: 100% 100%;
+    border-radius: 25px 25px;
+    width: 400px;
+    padding-bottom: 17%;
+    margin: 3% auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 15px 15px #383a3d;
+    align-items: center;
+    justify-content: center;
   }
-}
 
+  input {
+    font-size: 1.2rem;
+    border-radius: 10px 10px;
+    margin-bottom: 3%;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+  }
 
-}
-`
+  button {
+    font-size: 1.2rem;
+    border-radius: 15px 15px;
+    padding: 8px;
+    background-color: #acc8af;
+    border: 1px solid gray;
+    margin: 0 auto 5% auto;
+    color: #363f34;
+
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.5s;
+    }
+  }
+`;
 
 const initialState = {
   nickname: '',
@@ -119,9 +112,7 @@ const PlantForm = (props) => {
     <StyledPlant>
       <form onSubmit={submitHandler}>
         <section>
-        <div>
-          <label>
-            Nickname
+          <div>
             <input
               name="nickname"
               type="text"
@@ -129,11 +120,8 @@ const PlantForm = (props) => {
               onChange={changeHandler}
               placeholder="Nickname"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Species
+          </div>
+          <div>
             <input
               name="species"
               type="text"
@@ -141,21 +129,17 @@ const PlantForm = (props) => {
               onChange={changeHandler}
               placeholder="Species"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            h2o Frequency
+          </div>
+          <div>
             <input
               name="h2oFrequency"
               type="string"
               value={plantFormValues.h2oFrequency}
               onChange={changeHandler}
-              placeholder="h2o Frequency"
+              placeholder="H2O Frequency"
             />
-          </label>
+          </div>
           <button>Submit</button>
-        </div>
         </section>
       </form>
       <div>
@@ -164,7 +148,7 @@ const PlantForm = (props) => {
         <span style={{ color: 'red' }}>{errors.species}</span>
         <div></div>
         <span style={{ color: 'red' }}>{errors.h2oFrequency}</span>
-      </div>
+      </div>{' '}
     </StyledPlant>
   );
 };
