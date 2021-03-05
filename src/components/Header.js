@@ -8,6 +8,7 @@ const StyledHeader = styled.div`
   background-image: url('https://i2.wp.com/wallpaperboat.com/wp-content/uploads/2020/04/green-aesthetic-wallpaper-download.jpg');
   height: 20vh;
   font-family: 'Shippori Mincho B1', serif;
+  border-radius: 15px;
 
   h1 {
     font-size: 4.2rem;
