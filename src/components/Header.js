@@ -16,9 +16,13 @@ const StyledHeader = styled.div`
     margin-left: 2%;
   }
 
+  h1::selection {
+    color: #353b3c;
+  }
+
   nav {
     margin: auto 0.5% auto 0;
-    width: 30%;
+    width: 35%;
   }
 
   a {
@@ -47,16 +51,25 @@ const Header = (props) => {
 
         <nav>
           {!isLoggedIn ? (
-            <NavLink to="/login">Login</NavLink>
+            <NavLink className="navlink" to="/login">
+              Login
+            </NavLink>
           ) : (
-            <NavLink to="/login" onClick={() => props.logoutUser()}>
-              Logout
+            <NavLink className="navlink" to={`/plants/${userId}`}>
+              My Plants
             </NavLink>
           )}
           {!isLoggedIn ? (
-            <NavLink to="/signup">Sign Up</NavLink>
+            <NavLink className="navlink" to="/signup">
+              Sign Up
+            </NavLink>
           ) : (
-            <NavLink to={`/plants/${userId}`}>My Plants</NavLink>
+            <NavLink
+              className="navlink"
+              to="/login"
+              onClick={() => props.logoutUser()}>
+              Logout
+            </NavLink>
           )}
         </nav>
       </header>

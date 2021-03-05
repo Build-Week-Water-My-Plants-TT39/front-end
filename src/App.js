@@ -7,12 +7,16 @@ import { Route } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
 import PlantScreen from './components/PlantScreen';
 import PlantDetails from './components/PlantDetails';
+import './styles/appStyles.css';
 
 const App = (props) => {
   return (
     <div className="App">
       <Header />
       <Route path="/login">
+        <LoginForm />
+      </Route>
+      <Route exact path="/">
         <LoginForm />
       </Route>
       <Route path="/signup">

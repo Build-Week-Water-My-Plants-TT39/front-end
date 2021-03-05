@@ -21,7 +21,7 @@ function PlantDetails(props) {
   };
 
   return (
-    <div>
+    <div id="plant-details">
       <Plant
         nickname={plantObj[0]?.nickname}
         species={plantObj[0]?.species}
